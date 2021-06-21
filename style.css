@@ -1,0 +1,120 @@
+/**************************************************************/
+/* General Stylings */
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rubik", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+*::selection {
+  background-color: mediumturquoise;
+}
+
+/**************************************************************/
+/* Specific Stylings */
+
+.heading-group {
+  font-size: 4rem;
+}
+
+.main-heading {
+  font-size: 1em;
+}
+
+.subheading::after {
+  font-size: 0.25rem;
+  content: "🐉💻";
+}
+
+.header {
+  padding: 3rem 1rem;
+  padding-top: 4.5rem;
+  text-align: center;
+  background-color: #eee;
+  position: relative;
+}
+.hire-me {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  padding: 8px;
+  border-radius: 0.25rem;
+  background: green;
+  color: silver;
+}
+
+.nav-link {
+  padding: 0.25rem 0.6rem;
+  color: black;
+}
+
+.nav-link:hover {
+  color: blue;
+  background-color: lightgrey;
+}
+
+.nav-link:active {
+  color: limegreen;
+}
+
+.nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.main {
+  max-width: 3rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main > * + * {
+  margin-top: 3rem;
+}
+
+.main > * {
+  border-top: 0.125rem solid grey;
+  padding: 0 1rem;
+}
+
+.experience-heading {
+  display: inline-block;
+}
+
+.experience-subheading {
+  display: inline-block;
+}
+
+.main > * {
+  border-top: 2px solid grey;
+}
+
+.article-heading {
+  position: relative;
+  left: -1rem;
+}
+
+article + article {
+  margin-top: 5rem;
+}
+
+.mail {
+  color: black;
+}
