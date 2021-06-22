@@ -1,14 +1,26 @@
 /**************************************************************/
 /* General Stylings */
 
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
 }
 
-*:before,
-*:after {
-  box-sizing: border-box;
+@media screen and (mind-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  html {
+    font-size: 20px;
+  }
 }
 
 h1,
@@ -31,6 +43,14 @@ body {
 /**************************************************************/
 /* Specific Stylings */
 
+.header {
+  padding: 3rem 1rem;
+  padding-top: 4.5rem;
+  text-align: center;
+  background-color: #eee;
+  position: relative;
+}
+
 .heading-group {
   font-size: 4rem;
 }
@@ -44,13 +64,6 @@ body {
   content: "🐉💻";
 }
 
-.header {
-  padding: 3rem 1rem;
-  padding-top: 4.5rem;
-  text-align: center;
-  background-color: #eee;
-  position: relative;
-}
 .hire-me {
   position: absolute;
   right: 1rem;
@@ -59,6 +72,22 @@ body {
   border-radius: 0.25rem;
   background: green;
   color: silver;
+}
+
+@media screen and (min-width: 992px) {
+  .hire-me {
+    position: fixed;
+  }
+}
+
+@media print {
+  .hire-me {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
 }
 
 .nav-link {
@@ -80,7 +109,7 @@ body {
 }
 
 .main {
-  max-width: 3rem;
+  max-width: 60ch;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -92,6 +121,12 @@ body {
 .main > * {
   border-top: 0.125rem solid grey;
   padding: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main > * + * {
+    margin-top: 5rem;
+  }
 }
 
 .experience-heading {
