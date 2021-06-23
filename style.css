@@ -1,6 +1,6 @@
-/**************************************************************/
-/* General Stylings */
+//* General Stylings */
 
+*,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -11,7 +11,7 @@ html {
   font-size: 16px;
 }
 
-@media screen and (mind-width: 768px) {
+@media screen and (min-width: 768px) {
   html {
     font-size: 18px;
   }
@@ -29,34 +29,46 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Rubik", sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 body {
+  --background-color: snow;
+  --text-color: black;
+  --accent-color: #438480;
+  --accent-text-color: #555652;
+  --nav-link-active-bg-color: blue;
+
   margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 *::selection {
-  background-color: mediumturquoise;
+  background-color: var(--accent-color);
 }
-
-/**************************************************************/
-/* Specific Stylings */
 
 a,
 a:link,
 a:hover,
 a:visited,
 a:active {
-  color: black;
+  color: var(--text-color);
 }
+
+/* Specific Stylings */
 
 .header {
   padding: 3rem 1rem;
   padding-top: 4.5rem;
   text-align: center;
-  background-image: linear-gradient(235deg, snow, #66ffcc);
+  background-image: linear-gradient(
+    235deg,
+    var(--background-color),
+    var(--accent-color)
+  );
   position: relative;
+  color: var(--accent-text-color);
 }
 
 .heading-group {
@@ -67,24 +79,29 @@ a:active {
   font-size: 1em;
 }
 
-.subheading::after {
-  font-size: 2rem;
-  content: "🐉💻";
+.profession {
+  font-size: 0.25em;
+}
+
+.profession::after {
+  content: "🐉";
 }
 
 .hire-me {
   position: absolute;
   right: 1rem;
   top: 1rem;
-  padding: 8px;
+  padding: 0.5rem;
   border-radius: 0.25rem;
-  background: lightgreen;
-  color: silver;
-  transform-origin: top left;
-  transition: transform .5s; .5s; 
+  opacity: 0.5;
+  background: var(--accent-color);
+  transform-origin: top right;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
 }
 
-.header:hover .hire-me{
+.header:hover .hire-me,
+.header:focus-within .hire-me {
+  opacity: 1;
   transform: scale(1.5);
 }
 
@@ -96,7 +113,7 @@ a:active {
 
 @media print {
   .hire-me {
-    display: none;
+    display: absolut;
   }
 
   .navigation {
@@ -118,17 +135,28 @@ a:active {
 }
 
 .nav-link {
-  padding: 0.25rem 0.6rem;
-  color: black;
+  padding: 0.25rem 1rem;
+  color: var(--accent-text-color);
+  transition: background-color 0.25s ease-in-out;
 }
 
 .nav-link:hover {
-  color: blue;
-  background-color: lightgrey;
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
 }
 
 .nav-link:active {
-  color: limegreen;
+  background-color: var(--nav-link-active-bg-color);
+  color: var(--accent-text-color);
+}
+
+.nav-link:visited {
+  color: var(--accent-text-color);
+}
+
+.nav-link:focus {
+  background-color: var(--accent-color);
+  outline-color: var(--accent-text-color);
 }
 
 @media screen and (min-width: 768px) {
@@ -143,19 +171,49 @@ a:active {
   padding: 1rem;
 }
 
+@media screen and (min-width: 768px) {
+  .main {
+    max-width: 80ch;
+  }
+}
+
 .main > * + * {
   margin-top: 3rem;
 }
 
-.main > * + * {
-  border-top: 0.125rem solid grey;
+@media screen and (min-width: 768px) {
+  .main > * + * {
+    margin-top: 8rem;
+  }
+
+  .main > *:first-child {
+    margin-top: 4rem;
+  }
+}
+
+.main > *:first-child {
+  border-top: none;
+}
+
+.main-article {
+  border-top: 0.125rem solid var(--accent-color);
   padding: 0 1rem;
 }
 
 @media screen and (min-width: 768px) {
-  .main > * + * {
-    margin-top: 5rem;
+  .main-article {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
   }
+
+  .main-article-content {
+    margin-top: 3rem;
+  }
+}
+
+.main-article-heading {
+  position: relative;
+  left: -1rem;
 }
 
 .experience-header {
@@ -172,26 +230,10 @@ a:active {
   }
 }
 
-.main > * + * {
-  border-top: 2px solid grey;
-}
-
-.article-heading {
-  position: relative;
-  left: -1rem;
-}
-
-article + article {
-  margin-top: 5rem;
-}
-
-.mail {
-  color: black;
-}
-
 .footer {
   margin-top: 3rem;
-  background-color: #66ffcc;
+  background-color: var(--accent-color);
+  color: var(--accent-text-color);
   padding: 2rem;
 }
 
@@ -200,6 +242,10 @@ article + article {
   margin: 0;
 }
 
-.footer-link {
-  color: black;
+.footer-link,
+.footer-link:link,
+.footer-link:hover,
+.footer-link:active,
+.footer-link:visited {
+  color: var(--accent-text-color);
 }
