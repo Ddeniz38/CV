@@ -1,4 +1,4 @@
-//* General Stylings */
+/* General Stylings */
 
 *,
 *:before,
@@ -36,8 +36,8 @@ body {
   --background-color: snow;
   --text-color: black;
   --accent-color: #438480;
-  --accent-text-color: #555652;
-  --nav-link-active-bg-color: blue;
+  --accent-text-color: black;
+  --nav-link-active-bg-color: black;
 
   margin: 0;
   background-color: var(--background-color);
